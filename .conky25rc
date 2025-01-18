@@ -1,0 +1,43 @@
+conky.config = {
+    own_window = true,
+    own_window_type = 'desktop',
+    own_window_transparent = true,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    own_window_argb_visual = true,
+    own_window_argb_value = 0,
+    
+    -- Basic settings
+    background = false,
+    update_interval = 0.5,
+    double_buffer = true,
+    no_buffers = true,
+    text_buffer_size = 2048,
+    
+    -- Position for the bars
+    gap_x = 580,    
+    gap_y = 844,    
+    alignment = 'top_left',
+    
+    -- Font settings
+    use_xft = true,
+    font = 'DejaVu Sans Mono:size=12',
+    
+    -- Color and drawing
+    default_color = '00ffff',
+    draw_shades = true,
+    default_shade_color = '000000',
+    draw_outline = false,
+    default_outline_color = '000000',
+    
+    -- Border settings
+    draw_borders = false,
+    border_width = 0,
+    
+    -- Size
+    minimum_width = 30,
+    minimum_height = 20,
+}
+
+conky.text = [[
+${execp /home/stephen/.config/Conky/scripts/bar.sh}
+]]

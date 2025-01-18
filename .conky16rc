@@ -1,0 +1,39 @@
+conky.config = {
+    alignment = 'top_middle',
+    gap_x = 176,
+    gap_y = 575,
+    minimum_width = -470,
+    maximum_width = 90,
+    
+    -- Window settings
+    own_window = true,
+    own_window_type = 'desktop',
+    own_window_transparent = true,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    own_window_argb_visual = true,
+    own_window_argb_value = 0,
+    
+    -- No borders or background
+    border_width = 0,
+    draw_borders = false,
+    draw_graph_borders = false,
+    draw_outline = false,
+    draw_shades = false,
+    
+    -- Font settings
+    use_xft = true,
+    font = 'Monospace:size=9',
+    default_color = '#4AF626',  -- Matrix green
+    
+    -- Performance settings
+    update_interval = 1,
+    double_buffer = true,
+    no_buffers = true,
+    text_buffer_size = 2048,
+    
+    background = false
+}
+
+conky.text = [[
+${color #4AF626}${font Xidus LeaDea:bold:size=2}${alignc}${exec /home/stephen/.config/Conky/scripts/moonphase.sh}
+]]

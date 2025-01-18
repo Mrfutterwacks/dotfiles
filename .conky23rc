@@ -1,0 +1,36 @@
+conky.config = {
+    alignment = 'bottom_left',
+    gap_x = 466,
+    gap_y = 100,
+    minimum_width = 100,
+    maximum_width = 100,
+    
+   own_window = true,
+    own_window_type = 'desktop',
+    own_window_transparent = true,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    own_window_argb_visual = true,
+    own_window_argb_value = 0,
+    
+    border_width = 0,
+    draw_borders = false,
+    draw_graph_borders = false,
+    draw_outline = true,     -- Changed to true for outline effect
+    draw_shades = true,      -- Changed to true for glow effect
+    default_outline_color = '#FF69B4',  -- Pink outline
+    default_shade_color = '#00FFFF',    -- Cyan shadow/glow
+    
+    use_xft = true,
+    font = 'Magean',
+    default_color = '#00FFFF',
+    
+    update_interval = 0.1,
+    double_buffer = true,
+    no_buffers = true,
+    text_buffer_size = 2048,
+    
+    background = false
+}
+conky.text = [[
+${voffset 450}${color #00FFFF}${execpi 0.1 /home/stephen/.config/Conky/scripts/script.sh}
+]]

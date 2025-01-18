@@ -1,0 +1,42 @@
+conky.config = {
+    alignment = 'bottom_left',
+    gap_x = 235,  -- Adjust to match your pink bars
+    gap_y = 20,   -- Adjust for bottom spacing
+    minimum_width = 50,
+    maximum_width = 50,
+    minimum_height = 450,
+    
+    -- Window settings - keeping your working settings
+    own_window = true,
+    own_window_type = 'desktop',
+    own_window_transparent = true,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    own_window_argb_visual = true,
+    own_window_argb_value = 0,
+    
+    -- No borders or background - keeping your settings
+    border_width = 0,
+    draw_borders = false,
+    draw_graph_borders = false,
+    draw_outline = false,
+    draw_shades = false,
+    
+    -- Font settings - using your setup
+    use_xft = true,
+    font = 'Monospace:size=9',
+    default_color = '#FF1493',  -- Changed to hot pink
+    
+    -- Performance settings - keeping yours
+    update_interval = 0.1,  -- Made faster for smoother bars
+    double_buffer = true,
+    no_buffers = true,
+    text_buffer_size = 2048,
+    
+    background = false
+}
+
+conky.text = [[
+${voffset 450}${cpugraph cpu1 15,15 FF1493 00FFFF -t}
+${voffset -15}${offset 18}${cpugraph cpu2 15,15 FF1493 00FFFF -t}
+${voffset -15}${offset 36}${cpugraph cpu3 15,15 FF1493 00FFFF -t}
+]]
