@@ -1,0 +1,33 @@
+conky.config = {
+    background = false,
+    update_interval = 0.1,
+    double_buffer = true,
+    own_window = true,
+    own_window_type = 'override',
+    own_window_transparent = true,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    draw_borders = false,
+    draw_graph_borders = false,
+    alignment = 'bottom_left',
+    gap_x = 349,
+    gap_y =  180,
+    minimum_width = 200,
+    maximum_width = 110,
+    -- Neon mad scientist effect settings
+    default_color = "#00FF00",          -- Neon green
+    default_outline_color = "#39FF14",  -- Neon pink outline
+    default_graph_color = "#39FF14",    -- Electric cyan
+    draw_shades = true,
+    draw_outline = false,                -- Enable outlines
+    shade_color = "#FF00FF",            -- Neon pink for the glow effect
+    default_shade_color = "#39FF14",    -- Neon pink
+    outline_width = 2,                  -- Thicker outline for the neon effect
+};
+
+conky.text = [[
+
+${color #00FF00}${execgraph "/home/stephen/.config/conky/scripts/wave.sh 1" 10,90 #00FF00 #00ffff -t}
+${color #00FF00}${execgraph "/home/stephen/.config/conky/scripts/wave.sh 2" 22,90 #faeb2c #00ffff -t}
+${color #00FF00}${execgraph "/home/stephen/.config/conky/scripts/wave.sh 3" 30,90 #f52789 #21ff25 -t}
+${color #00FF00}${execgraph "/home/stephen/.config/conky/scripts/wave.sh 4" 20,90 #1685f8 #21ff25 -t}
+]]

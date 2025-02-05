@@ -1,0 +1,41 @@
+conky.config = {
+    alignment = 'top_left',
+    background = false,
+    border_width = 0,
+    font = 'Liberation Serif:size=9',
+    default_color = '#32CD32', 
+    color1 = '#4169E1',        
+    double_buffer = true,
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = true,
+    shade_color = '#8A2BE2',   
+    use_xft = true,
+    gap_x = 600,              
+    gap_y = 80,                
+    minimum_height = 300,       
+    minimum_width = 200,        
+    net_avg_samples = 2,
+    out_to_console = false,
+    out_to_x = true,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'override',
+    own_window_transparent = true,
+    own_window_argb_visual = true,
+    own_window_argb_value = 0,
+    update_interval = 0.5,      
+    uppercase = true,
+}
+
+conky.text = [[
+${color #FFD700}${offset 10}${font Lunar Escape:bold:size=10}${offset 50}VOID SOLAR METRICS:
+${offset -61}${image /home/stephen/.config/conky/images/current.png -p -2,1 -s 50x50}
+${offset 51}${font Liberation Serif:bold:size=8}${color #E6E8FA}VOID DISTANCE: ${color #B8A6D9}${execpi 10 sed -n '1p' /home/stephen/.cache/conky/solar.txt} AU
+${offset 40}${color #E6E8FA}ETHEREAL SIZE: ${color #B8A6D9}${execpi 10 sed -n '2p' /home/stephen/.cache/conky/solar.txt} arcmin
+${offset 10}${color #DCD0FF} CONVERGENCE: ${color #B8A6D9}${execpi 10 sed -n '3p' /home/stephen/.cache/conky/solar.txt}
+${offset 10}${color #DCD0FF}CELESTIAL STATE: ${color #B8A6D9}${execpi 10 sed -n '4p' /home/stephen/.cache/conky/solar.txt}
+${offset 10}${color #C8A2C8}VOID PHASE: ${color #B8A6D9}${execpi 10 sed -n '5p' /home/stephen/.cache/conky/solar.txt}
+${offset 40}${color #C8A2C8}${execpi 10 sed -n '6p' /home/stephen/.cache/conky/solar.txt}
+]]

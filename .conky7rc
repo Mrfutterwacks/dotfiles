@@ -1,91 +1,115 @@
 conky.config = {
-    -- Various settings
+    -- Basic settings
     background = true,
     cpu_avg_samples = 2,
-    diskio_avg_samples = 10,
     double_buffer = true,
-    if_up_strictness = 'address',
-    net_avg_samples = 2,
-    no_buffers = true,
-    temperature_unit = 'fahrenheit',
-    text_buffer_size = 2048,
     update_interval = 1,
-    imlib_cache_size = 0,
     
     -- Placement
-    alignment = 'top_left',  -- Changed to opposite side of main Conky
-	gap_x = 10,
-	gap_y = 610, 
+    alignment = 'top_left',
+    gap_x = 10,
+    gap_y = 558,
     minimum_height = 50,
-    minimum_width = 600,
-    maximum_width = 299,
+    minimum_width = 300,
+    maximum_width = 300,
     
-    -- Graphical (matching main Conky)
-    border_inner_margin = 10,
-    border_outer_margin = 5,
-    border_width = 3,
-    default_bar_width = 80,
-    default_bar_height = 10,
-    default_gauge_height = 25,
-    default_gauge_width = 40,
-    default_graph_height = 40,
-    default_graph_width = 0,
-    default_shade_color = '#1F51FF',
-    default_outline_color = '#1F51FF',
+    -- Window settings
+    own_window = true,
+    own_window_type = 'normal',
+    own_window_argb_visual = true,
+    own_window_argb_value = 230,
+    own_window_colour = '#0a0814',
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    
+    -- Border settings
+    border_inner_margin = 4,
+    border_outer_margin = 3,
+    border_width = 1,
     draw_borders = true,
     draw_graph_borders = true,
-    draw_shades = true,
+    draw_shades = false,
     draw_outline = false,
     
-    -- Textual (matching main Conky)
-    extra_newline = false,
-    format_human_readable = true,
-    font = 'Victoriana:size=12',
-    max_text_width = 0,
-    max_user_text = 16384,
-    override_utf8_locale = true,
-    short_units = true,
-    top_name_width = 21,
-    top_name_verbose = false,
-    uppercase = false,
-    use_spacer = 'none',
+    -- Text settings
     use_xft = true,
+    font = 'JetBrains Mono:size=9',
     xftalpha = 1,
+    uppercase = false,
+    extra_newline = false,
+  
+    -- Cyberpunk colors matching screenshot
+    default_color = '#00ff00',      -- Neon green
+    color1 = '#ff00ff',            -- Neon purple
+    color2 = '#00ff00',            -- Bright green
+    color3 = '#00ffff',            -- Cyan
+    color4 = '#ff00ff',            -- Magenta
+    color5 = '#bd93f9',            -- Purple
+    color6 = '#ff0000',            -- Red
+    color7 = '#ffff00',            -- Yellow
+    color8 = '#0000ff',            -- Blue
+    color9 = '#ff00ff',            -- Magenta
+};
+conky.config = {
+    -- Basic settings
+    background = true,
+    cpu_avg_samples = 2,
+    double_buffer = true,
+    update_interval = 1,
     
-    -- Windows
+    -- Placement
+    alignment = 'top_left',
+    gap_x = 10,
+    gap_y = 558,
+    minimum_height = 50,
+    minimum_width = 300,
+    maximum_width = 300,
+    
+    -- Window settings
     own_window = true,
-    own_window_argb_value = 180,
-    own_window_argb_visual = true,
-    own_window_colour = '#282a36',
-    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
-    own_window_transparent = false,
-    own_window_title = 'Terminal of Void Engineers Mark IV - Harmonics',
     own_window_type = 'normal',
+    own_window_argb_visual = true,
+    own_window_argb_value = 230,
+    own_window_colour = '#0a0814',
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
     
-    -- Colors (matching Dracula theme from main Conky)
-    default_color = '#e2176d',
-    color1 = '#FF79C6',
-    color2 = '#50FA7B',
-    color3 = '#8BE9FD',
-    color4 = '#FFB86C',
-    color5 = '#BD93F9',
-    color6 = '#FF5555',
-    color7 = '#F1FA8C',
-    color8 = '#6272A4',
-    color9 = '#8B0000',
+    -- Border settings
+    border_inner_margin = 4,
+    border_outer_margin = 3,
+    border_width = 1,
+    draw_borders = true,
+    draw_graph_borders = true,
+    draw_shades = false,
+    draw_outline = false,
     
-    -- Image support
-    lua_load = '~/.conky/scripts/image.lua',
-    lua_draw_hook_pre = 'draw_image',
-}
-
+    -- Text settings
+    use_xft = true,
+    font = 'JetBrains Mono:size=9',
+    xftalpha = 1,
+    uppercase = false,
+    extra_newline = false,
+  
+    -- Sluagh-inspired dark and secretive colors
+    default_color = '#ff00ff',      -- Deep dark blue-black
+    color1 = '#16213e',             -- Darker blue-black
+    color2 = '#0f3460',             -- Dark blue
+    color3 = '#212121',             -- Almost black
+    color4 = '#4a4e69',             -- Muted grey-blue
+    color5 = '#22223b',             -- Dark indigo
+    color6 = '#4a4e69',             -- Grey-blue
+    color7 = '#2a2a2a',             -- Dark grey
+    color8 = '#1e1e2e',             -- Dark blue-black
+    color9 = '#353555',             -- Muted dark blue
+};
 conky.text = [[
-${color #FF79C6}${font Magna Veritas:size=9}V O I D  S T O R A G E${hr 2}${font}
-
-${color #BD93F9}${offset 30}${font Marigold:size=12}Primary Void Chamber: ${color #8BE9FD}${alignr}${offset -10}${mem} / ${memmax}${alignr}${membar}
-${color #BD93F9}${offset 30}${font Marigold:size=12}Auxiliary Void Vessel:${color #8BE9FD} ${alignr}${offset -10}${swap} / ${swapmax}${alignr}${swapbar}
-${color #BD93F9}${offset 30}${font Marigold:size=12}Void Energy Consumers:${color}
-${color #FFB86C}${offset 45}${font Marigold:size=12}${top_mem name 1}${alignr}${top_mem mem 1}%
-${color #FFB86C}${offset 45}${font Marigold:size=12}${top_mem name 2}${alignr}${top_mem mem 2}%
-${color #FFB86C}${offset 45}${font Marigold:size=12}${top_mem name 3}${alignr}${top_mem mem 3}%
+${color4}${font Magna Veritas:size=9}❮ NIGHTMARES' DIGITAL ARCHIVE ❯${font}${color3}]${hr 2}
+${color magenta}${font Marigold:size=15}Ethereal Memory Catacombs:${font}${alignr}${color cyan}${mem} / ${memmax}
+${color cyan}${membar 6}
+${color magenta}${font Marigold:size=15}Spectral Cache Whispers:${font}${alignr}${color cyan}${swap} / ${swapmax}
+${color cyan}${swapbar 6}
+${color magenta}${font Marigold:size=15}Digital Dreams Devoured:${font}
+${color cyan}${top_mem name 1}${alignr}${top_mem mem 1}%
+${color cyan}${top_mem name 2}${alignr}${top_mem mem 2}%
+${color cyan}${top_mem name 3}${alignr}${top_mem mem 3}%
+${color5}${font Marigold:size=15}${font AstroDotBasic:size=12}E${font}${font Marigold:size=15}${color cyan}Ethereal Power Matrix:${font} ${alignr}${color #ff00ff}${execbar 8,80 acpi -b | cut -d "," -f2 | tr -d ' %'}
+${alignr}${color3}${exec acpi -b | cut -d "," -f2 | tr -d ' '}% ${if_existing /sys/class/power_supply/BAT0/status Charging}⚡${endif}
 ]]

@@ -1,90 +1,63 @@
 conky.config = {
-    -- Various settings
+    -- Basic settings
     background = true,
     cpu_avg_samples = 2,
-    diskio_avg_samples = 10,
     double_buffer = true,
-    if_up_strictness = 'address',
-    net_avg_samples = 2,
-    no_buffers = true,
-    temperature_unit = 'fahrenheit',
-    text_buffer_size = 2048,
     update_interval = 1,
-    imlib_cache_size = 0,
     
     -- Placement
-    alignment = 'top_right',  -- Changed to opposite side of main Conky
-    gap_x =  11,
-    gap_y =  290,
+    alignment = 'top_right',
+    gap_x = 11,
+    gap_y = 220,
     minimum_height = 50,
     minimum_width = 300,
-    maximum_width =400,
+    maximum_width = 400,
     
-    -- Graphical (matching main Conky)
-    border_inner_margin = 10,
-    border_outer_margin = 5,
-    border_width = 3,
-    default_bar_width = 80,
-    default_bar_height = 10,
-    default_gauge_height = 25,
-    default_gauge_width = 40,
-    default_graph_height = 40,
-    default_graph_width = 0,
-    default_shade_color = '#1F51FF',
-    default_outline_color = '#1F51FF',
+    -- Window settings
+    own_window = true,
+    own_window_type = 'normal',
+    own_window_argb_visual = true,
+    own_window_argb_value = 230,
+    own_window_colour = '#0a0814',
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    
+    -- Border settings
+    border_inner_margin = 4,
+    border_outer_margin = 3,
+    border_width = 1,
     draw_borders = true,
-    draw_graph_borders = true,
-    draw_shades = true,
+    draw_graph_borders = false,
+    draw_shades = false,
     draw_outline = false,
     
-    -- Textual (matching main Conky)
-    extra_newline = false,
-    format_human_readable = true,
-    font = 'Victoriana:size=12',
-    max_text_width = 0,
-    max_user_text = 16384,
-    override_utf8_locale = true,
-    short_units = true,
-    top_name_width = 21,
-    top_name_verbose = false,
-    uppercase = false,
-    use_spacer = 'none',
+    -- Text settings
     use_xft = true,
+    font = 'JetBrains Mono:size=9',
     xftalpha = 1,
+    uppercase = false,
+    extra_newline = false,
     
-    -- Windows
-    own_window = true,
-    own_window_argb_value = 180,
-    own_window_argb_visual = true,
-    own_window_colour = '#282a36',
-    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
-    own_window_transparent = false,
-    own_window_title = 'Terminal of Void Engineers Mark IV - Harmonics',
-    own_window_type = 'normal',
-    
-    -- Colors (matching Dracula theme from main Conky)
-    default_color = '#e2176d',
-    color1 = '#FF79C6',
-    color2 = '#50FA7B',
-    color3 = '#8BE9FD',
-    color4 = '#FFB86C',
-    color5 = '#BD93F9',
-    color6 = '#FF5555',
-    color7 = '#F1FA8C',
-    color8 = '#6272A4',
-    color9 = '#8B0000',
-    
-    -- Image support
-    lua_load = '~/.conky/scripts/image.lua',
-    lua_draw_hook_pre = 'draw_image',
+  
+    -- Cyberpunk colors matching screenshot
+    default_color = '#00ff00',      -- Neon green
+    color1 = '#ff00ff',            -- Neon purple
+    color2 = '#00ff00',            -- Bright green
+    color3 = '#00ffff',            -- Cyan
+    color4 = '#ff00ff',            -- Magenta
+    color5 = '#bd93f9',            -- Purple
+    color6 = '#ff0000',            -- Red
+    color7 = '#ffff00',            -- Yellow
+    color8 = '#0000ff',            -- Blue
+    color9 = '#ff00ff',            -- Magenta
 };
 
-conky.text = [[
-${color #FF79C6}${font Magna Veritas:size=9}V O I D  V E S S E L  S P E C S${hr 2}${font}
 
-${color #BD93F9}${offset 30}${font Marigold:size=12}Vessel Designation:${color #8BE9FD} ${alignr}${nodename}
-${color #BD93F9}${offset 30}${font Marigold:size=12}Void Engine Type:${color #8BE9FD}${alignr}$sysname ${alignr}${execi 6000 lsb_release -a | grep 'Description'|awk {'print $3, $4, $5'}}
-${color #BD93F9}${offset 30}${font Marigold:size=12}Void Core:${color #8BE9FD}${alignr}${exec uname} ${exec uname -r}
-${color #BD93F9}${offset 30}${font Marigold:size=12}Temporal Duration:${color #8BE9FD} ${alignr}${uptime}
-${color #BD93F9}${offset 30}${font Marigold:size=12}Void Pressure:${color #8BE9FD} ${alignr}${loadavg}
+conky.text = [[
+${color3}[${color2}${font Magna Veritas:size=9} DIGITAL WEB NODE SPECS ${font}${color3}]${hr 2}
+${color5}${font Marigold:size=12}Virtual Identity: ${alignr}${color3}${nodename}
+${color5}${font Marigold:size=12}Reality Engine v${alignr}${color3}$sysname ${execi 6000 lsb_release -a | grep 'Description'|awk {'print $3, $4, $5'}}
+${color5}${font Marigold:size=12}Paradigm Kernel: ${alignr}${color3}${exec uname} ${exec uname -r}
+${color5}${font Marigold:size=12}Uptime in Webspace: ${alignr}${color3}${uptime}
+${color5}${font Marigold:size=12}Reality Load: ${alignr}${color3}${loadavg}
+${color3}${hr 2}
 ]]

@@ -1,98 +1,67 @@
 conky.config = {
-    -- Various settings
+    -- Basic settings
     background = true,
     cpu_avg_samples = 2,
-    diskio_avg_samples = 10,
     double_buffer = true,
-    if_up_strictness = 'address',
-    net_avg_samples = 2,
-    no_buffers = true,
-    temperature_unit = 'fahrenheit',
-    text_buffer_size = 2048,
     update_interval = 1,
-    imlib_cache_size = 0,
     
     -- Placement
-    alignment = 'bottom_right',  -- Changed to opposite side of main Conky
-    gap_x = 30,
-    gap_y = 90,
+    alignment = 'top_right',
+    gap_x = -16,
+    gap_y = 715,
     minimum_height = 20,
     minimum_width = 300,
     maximum_width = 300,
     
-    -- Graphical (matching main Conky)
-    border_inner_margin = 10,
-    border_outer_margin = 5,
-    border_width = 3,
-    default_bar_width = 80,
-    default_bar_height = 10,
-    default_gauge_height = 25,
-    default_gauge_width = 40,
-    default_graph_height = 40,
-    default_graph_width = 0,
-    default_shade_color = '#1F51FF',
-    default_outline_color = '#1F51FF',
+    -- Window settings
+    own_window = true,
+    own_window_type = 'normal',
+    own_window_argb_visual = true,
+    own_window_argb_value = 230,
+    own_window_colour = '#0a0814',
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    
+    -- Border settings
+    border_inner_margin = 4,
+    border_outer_margin = 3,
+    border_width = 1,
     draw_borders = true,
     draw_graph_borders = true,
-    draw_shades = true,
+    draw_shades = false,
     draw_outline = false,
     
-    -- Textual (matching main Conky)
-    extra_newline = false,
-    format_human_readable = true,
-    font = 'Victoriana:size=12',
-    max_text_width = 0,
-    max_user_text = 16384,
-    override_utf8_locale = true,
-    short_units = true,
-    top_name_width = 21,
-    top_name_verbose = false,
-    uppercase = false,
-    use_spacer = 'none',
+    -- Text settings
     use_xft = true,
+    font = 'JetBrains Mono:size=9',
     xftalpha = 1,
-    
-    -- Windows
-    own_window = true,
-    own_window_argb_value = 180,
-    own_window_argb_visual = true,
-    own_window_colour = '#282a36',
-    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
-    own_window_transparent = false,
-    own_window_title = 'Terminal of Void Engineers Mark IV - Harmonics',
-    own_window_type = 'normal',
-    
-    -- Colors (matching Dracula theme from main Conky)
-    default_color = '#e2176d',
-    color1 = '#FF79C6',
-    color2 = '#50FA7B',
-    color3 = '#8BE9FD',
-    color4 = '#FFB86C',
-    color5 = '#BD93F9',
-    color6 = '#FF5555',
-    color7 = '#F1FA8C',
-    color8 = '#6272A4',
-    color9 = '#8B0000',
-    
-    -- Image support
-    lua_load = '~/.conky/scripts/image.lua',
-    lua_draw_hook_pre = 'draw_image',
+    uppercase = false,
+    extra_newline = false,
+  
+    -- Cyberpunk colors
+    default_color = '#00ff00',
+    color1 = '#ff00ff',
+    color2 = '#00ff00',
+    color3 = '#00ffff',
+    color4 = '#ff00ff',
+    color5 = '#bd93f9',
+    color6 = '#ff0000',
+    color7 = '#ffff00',
+    color8 = '#0000ff',
+    color9 = '#ff00ff',
 };
 
-
 conky.text = [[
-${color #F8F8F2}${font Magna Veritas:size=10}${alignc}V O I D  M E C H  T E M P O R I U M${font}
-${color #BD93F9}${hr 2}
-${color #F8F8F2}${font UniversityRoman:size=16}${alignc}${time %B} ${time %Y}${font}
-${color #FF79C6}${hr 2}
-${color #50FA7B}${font Professor:size=17}${alignc}TERMINAL OF VOID ENGINEERS 
-${color #50FA7B}${font Professor:size=12}${alignc}Model Mark IV-Series Gamma
-${color #50FA7B}${hr 2}
-${color #F8F8F2}${font Magna Veritas:size=10}${alignc}T E M P O R A L  F L U X${font}
-${color #8BE9FD}${font Marigold:size=19}${color #BD93F9}${execpi 300 cal | sed -e 's/'`date | awk '{print $3}'`'/\$\{color #50FA7B}'`date | awk '{print $3}'`'\$\{color #BD93F9}/'|sed 's/^/${alignc}/'}${font}
+${color3}[${color #c49bdf}${font Computer 7:size=22}TEMPORIS SANCTUM${font}${color3}]${hr 2}
+${color3}[${color #7fd3f7}${alignc}${font Computer 7:size=16}${time %B} of the Eternal Night${font}${color3}]
+${execp ~/.config/conky/scripts/C.py}
+
+
+
+${color #84f2b3}${font Computer 7:bold:size=9}${execi 3600 python3 /home/stephen/.config/conky/scripts/Jewish.py}
+
+${color #ffde17}${font Computer 7:size=9}HARMONIC DISTORTIONS${execi 1 bash /home/stephen/.config/conky/scripts/T5.sh}
+
+
+
+
 ]]
-
-
-
-
-

@@ -6,47 +6,49 @@ conky.config = {
     text_buffer_size = 2048,
     update_interval = 1,
     imlib_cache_size = 0,
+
     -- Placement
     alignment = 'bottom_right',
     gap_x = 550,
-    gap_y = 247,
+    gap_y = 229,
     minimum_height = 20,
     minimum_width = 200,
     maximum_width = 200,
-    -- Window settings - using your exact working settings
+
+    -- Window settings
     own_window = true,
     own_window_type = 'desktop',
     own_window_transparent = true,
     own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
     own_window_argb_visual = true,
     own_window_argb_value = 0,
-    -- No borders or background - using your exact settings
+
+    -- No borders or background
     border_width = 0,
     draw_borders = false,
     draw_graph_borders = false,
-    draw_outline = false,
-    draw_shades = true,
+    draw_outline = false,  -- Enable outline
+    draw_shades = false,   -- Enable shading
+
     -- Text and colors
+    default_color = '#00FFFF',  -- Default text color (neon cyan)
+    default_shade_color = '#800000',  -- Shade color (blue violet)
+    default_outline_color = '#800000',  -- Outline color (blue violet)
+    
+    -- Fonts
     use_xft = true,
     font = 'Marigold:size=12',
-	default_color = '#121212',  
-	color1 = '#00FFFF',         
-	color2 = '#04FFF7',        
-	color3 = '#FF007F',         
-	color4 = '#00BFFF',         
-	color5 = '#FFD700',        
-	color6 = '#9400D3',         
-	color7 = '#04FFF7',         
-	color8 = '#04FFF7 ',         
-	color9 = '#04FFF7',         
 }
-conky.text = [[
-${font Welcome To Future 1:bold:size=15}${color2}VOID LUNAR METRICS${font}${color8}
-${image /home/stephen/.config/Conky/images/moon.png -p 2,20 -s 40x40}${voffset -25}${font Roboto:bold:size=8}
 
-# These should pull the data from moon.txt
-${offset 50}${color7}Lunar Illumination: ${color3}${execpi 3600 cat /home/stephen/.cache/conky/moon.txt | sed -n '2p'}%
-${offset 50}${color7}Next Full Moon: ${color3}${execpi 3600 cat /home/stephen/.cache/conky/moon.txt | sed -n '4p'}
-${offset 50}${color7}Void Distance: ${color3}${execpi 3600 cat /home/stephen/.cache/conky/moon.txt | sed -n '3p'} km
-${color1}
+conky.text = [[
+${font Merlin:size=10}${offset 5}${color #83d9f1}${alignc}VOID LUNAR METRICS:${font}
+${image /home/stephen/.cache/conky/phase.png -p 5,25 -s 40x40}
+
+${offset 5}${font Liberation Mono:bold:size=7}${color #FF64D1}Lunar Illumination: ${color #D172FF}${execpi 3600 cat /home/stephen/.cache/conky/moon.txt | sed -n '1p'}%
+${offset 5}${color #00FFFF}Next Full Moon: ${color #FF64D1}${execpi 3600 cat /home/stephen/.cache/conky/moon.txt | sed -n '4p'}
+${offset 5}${color #aebebd}Void Distance: ${color #FF64D1}${execpi 3600 cat /home/stephen/.cache/conky/moon.txt | sed -n '3p'} km
+${offset 5}${color #00FFFF}${color #83d9f1}${execpi 3600 cat /home/stephen/.cache/conky/moon.txt | sed -n '5p'}
+${offset 1}${color #FF64D1}${execpi 3600 cat /home/stephen/.cache/conky/moon.txt | sed -n '7p'}
+${offset 1}${color #00FFFF}${execpi 3600 cat /home/stephen/.cache/conky/moon.txt | sed -n '8p'}
+${offset 10}${color #83d9f1}${execpi 3600 cat /home/stephen/.cache/conky/moon.txt | sed -n '9p'}
 ]]

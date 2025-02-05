@@ -1,9 +1,9 @@
 conky.config = {
-    alignment = 'top_middle',
-    gap_x = -22,
-    gap_y = 276,
-    minimum_width = 220,
-    maximum_width = 80,
+    alignment = 'top_left',
+    gap_x = -160,
+    gap_y = 899,
+    minimum_width = 300,
+    maximum_width = 100,
     
     -- Window settings
     own_window = true,
@@ -35,5 +35,5 @@ conky.config = {
 }
 
 conky.text = [[
-${color #4AF626}${font AstroDotBasic:size=6}${alignc}${exec /home/stephen/.config/conky/scripts/enock.sh}
+${color #4AF626}${font Devil's Tongue:size=3}${alignc}${exec /home/stephen/.config/conky/scripts/ship.sh}
 ]]

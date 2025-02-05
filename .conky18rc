@@ -35,5 +35,5 @@ conky.config = {
 }
 
 conky.text = [[
-${color #4AF626}${font Giedi Predacon:bold:size=7}${alignc}${exec /home/stephen/.config/Conky/scripts/ship.sh}
+${color #4AF626}${font Giedi Predacon:bold:size=7}${alignc}${exec /home/stephen/.config/conky/scripts/ship.sh}
 ]]

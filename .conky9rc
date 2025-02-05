@@ -1,102 +1,66 @@
-
 conky.config = {
-    -- Various settings
     background = true,
     cpu_avg_samples = 2,
-    diskio_avg_samples = 10,
     double_buffer = true,
-    if_up_strictness = 'address',
-    net_avg_samples = 2,
-    no_buffers = true,
-    temperature_unit = 'fahrenheit',
-    text_buffer_size = 2048,
     update_interval = 1,
-    imlib_cache_size = 0,
-
-    -- Placement
-    alignment = 'top_left',
-    gap_x = -9,
-    gap_y = 800,
-    minimum_height =14,
-    minimum_width = 298,
+    
+    alignment = 'bottom_left',
+    gap_x = 9,
+    gap_y = 42,
+    minimum_height = 14,
+    minimum_width = 302,
     maximum_width = 302,
-
-    -- Graphical
-    border_inner_margin = 10,
-    border_outer_margin = 5,
-    border_width = 3,
-    default_bar_width = 80,
-    default_bar_height = 10,
-    default_gauge_height = 25,
-    default_gauge_width = 40,
-    default_graph_height = 40,
-    default_graph_width = 0,
-    default_shade_color = '#1F51FF',
-    default_outline_color = '#1F51FF',
-    draw_borders = true,
-    draw_graph_borders = true,
-    draw_shades = true,
-    draw_outline = false,
-
-    -- Textual
-    extra_newline = false,
-    format_human_readable = true,
-    font = 'Victoriana:size=12',
-    max_text_width = 0,
-    max_user_text = 16384,
-    override_utf8_locale = true,
-    short_units = true,
-    top_name_width = 21,
-    top_name_verbose = false,
-    uppercase = false,
-    use_spacer = 'none',
-    use_xft = true,
-    xftalpha = 1,
-
-    -- Windows
+    
     own_window = true,
-    own_window_argb_value = 180,
-    own_window_argb_visual = true,
-    own_window_colour = '#282a36',  -- Dracula background color
-    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
-    own_window_transparent = false,
-    own_window_title = 'Terminal of Void Engineers Mark IV',
     own_window_type = 'normal',
-
-    -- Colors (based on Dracula theme)
-    default_color = '#e2176d',  -- light foreground (off-white)
-    color1 = '#FF79C6',  -- pink
-    color2 = '#50FA7B',  -- green
-    color3 = '#8BE9FD',  -- cyan
-    color4 = '#FFB86C',  -- orange
-    color5 = '#BD93F9',  -- purple
-    color6 = '#FF5555',  -- red
-    color7 = '#F1FA8C',  -- yellow
-    color8 = '#6272A4',  -- blue
-    color9 = '#8B0000',  -- dark red
-
-    -- Image support
-    lua_load = '~/.conky/scripts/image.lua',
-    lua_draw_hook_pre = 'draw_image',
+    own_window_argb_visual = true,
+    own_window_argb_value = 230,
+    own_window_colour = '#0a0814',
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    
+    border_inner_margin = 4,
+    border_outer_margin = 3,
+    border_width = 1,
+    draw_borders = true,
+    draw_graph_borders = false,
+    draw_shades = false,
+    draw_outline = false,
+    
+    use_xft = true,
+    font = 'JetBrains Mono:size=9',
+    xftalpha = 1,
+    uppercase = false,
+    extra_newline = false,
+    
+    default_color = '#00ff00',
+    color1 = '#ff00ff',
+    color2 = '#00ff00',
+    color3 = '#00ffff',
+    color4 = '#ff00ff',
+    color5 = '#bd93f9',
+    color6 = '#ff0000',
+    color7 = '#ffff00',
+    color8 = '#0000ff',
+    color9 = '#ff00ff',
 };
 conky.text = [[
-${color #FF79C6}${offset 30}${font Magna Veritas:size=9}V O I D  A T M O S P H E R E${hr 2}${font}${if_empty ${execi 3600 curl -s "http://api.openweathermap.org/data/2.5/weather?q=Metamora,IL,US&appid=f056bf9c7862fc780a5a3cd5e1942c2c"}}
-
-${color #FF5555}${font Marigold:size=15}Weather Data Temporarily Unavailable${font}
+${color3}${color2}${font Alchemical_apparatus:size=11}a${font}${font Magna Veritas:size=10}ETHEREAL WEATHER MATRIX ${font Alchemical_apparatus:size=9}a${font}${color3}${hr 2}
+${if_empty ${exec curl -s "http://api.openweathermap.org/data/2.5/weather?q=Metamora,IL,US&appid=f056bf9c7862fc780a5a3cd5e1942c2c"}}
+${color6}${font Marigold:size=15}${font Alchemical_apparatus:size=12}w${font} ETHEREAL CONNECTION DISRUPTED - REALITY UNSTABLE ${font Alchemical_apparatus:size=12}w${font}
 ${else}
-
-${color #BD93F9}${offset 30}${font Marigold:size=12}Void Temperature:${color #FF5555}${font} ${alignr}${execi 3600 curl -s "http://api.openweathermap.org/data/2.5/weather?q=Metamora,IL,US&appid=f056bf9c7862fc780a5a3cd5e1942c2c&units=imperial" | grep -o '"temp":[^,]*' | cut -d':' -f2}°F
-${color #BD93F9}${offset 30}${font Marigold:size=12}Void Pressure:${color #8BE9FD}${font} ${alignr}${execi 3600 curl -s "http://api.openweathermap.org/data/2.5/weather?q=Metamora,IL,US&appid=f056bf9c7862fc780a5a3cd5e1942c2c" | grep -o '"pressure":[^,]*' | cut -d':' -f2} hPa
-${color #BD93F9}${offset 30}${font Marigold:size=12}Void Density:${color #8BE9FD}${font} ${alignr}${execi 3600 curl -s "http://api.openweathermap.org/data/2.5/weather?q=Metamora,IL,US&appid=f056bf9c7862fc780a5a3cd5e1942c2c" | grep -o '"humidity":[^,]*' | cut -d':' -f2}%
-${color #BD93F9}${offset 30}${font Marigold:size=12}Void Currents:${color #8BE9FD}${font} ${alignr}${execi 3600 curl -s "http://api.openweathermap.org/data/2.5/weather?q=Metamora,IL,US&appid=f056bf9c7862fc780a5a3cd5e1942c2c" | grep -o '"speed":[^,]*' | cut -d':' -f2} mph
-${color #BD93F9}${offset 30}${font Marigold:size=12}Void Sunrise:${color #8BE9FD}${font} ${alignr}${execi 3600 curl -s "http://api.openweathermap.org/data/2.5/weather?q=Metamora,IL,US&appid=f056bf9c7862fc780a5a3cd5e1942c2c" | grep -o '"sunrise":[0-9]*' | cut -d':' -f2 | xargs -I {} date -d @{} +%I:%M\ %p}
-${color #BD93F9}${offset 30}${font Marigold:size=12}Void Sunset:${color #8BE9FD}${font} ${alignr}${execi 3600 curl -s "http://api.openweathermap.org/data/2.5/weather?q=Metamora,IL,US&appid=f056bf9c7862fc780a5a3cd5e1942c2c" | grep -o '"sunset":[0-9]*' | cut -d':' -f2 | xargs -I {} date -d @{} +%I:%M\ %p}
+${color5}${font Marigold:size=15}${font Alchemical_apparatus:size=12}w${font}${font Marigold:size=15}Etheric Temperature Resonance:${font} ${alignr}${color3}${execbar 8,100 curl -s "http://api.openweathermap.org/data/2.5/weather?q=Metamora,IL,US&appid=f056bf9c7862fc780a5a3cd5e1942c2c&units=imperial" | grep -o '"temp":[^,]*' | cut -d':' -f2 | awk '{print ($1+20)*100/140}'}
+${color6}${execi 30 curl -s "http://api.openweathermap.org/data/2.5/weather?q=Metamora,IL,US&appid=f056bf9c7862fc780a5a3cd5e1942c2c&units=imperial" | grep -o '"temp":[^,]*' | cut -d':' -f2}°F
+${color5}${font Marigold:size=15}${font Alchemical_apparatus:size=12}u${font} ${font Marigold:size=15}Reality Pressure Coefficient:${font} ${alignr}${color4}${execbar 8,100 curl -s "http://api.openweathermap.org/data/2.5/weather?q=Metamora,IL,US&appid=f056bf9c7862fc780a5a3cd5e1942c2c" | grep -o '"pressure":[^,]*' | cut -d':' -f2 | awk '{print ($1-970)*100/60}'}
+${color3}${execi 45 curl -s "http://api.openweathermap.org/data/2.5/weather?q=Metamora,IL,US&appid=f056bf9c7862fc780a5a3cd5e1942c2c" | grep -o '"pressure":[^,]*' | cut -d':' -f2} hPa
+${color5}${font Marigold:size=15}${font AstroDotBasic:size=12}X${font}${font Marigold:size=15}Dimensional Density Matrix:${font} ${alignr}${color1}${execbar 8,100 curl -s "http://api.openweathermap.org/data/2.5/weather?q=Metamora,IL,US&appid=f056bf9c7862fc780a5a3cd5e1942c2c" | grep -o '"humidity":[^,]*' | cut -d':' -f2}
+${color3}${execi 15 curl -s "http://api.openweathermap.org/data/2.5/weather?q=Metamora,IL,US&appid=f056bf9c7862fc780a5a3cd5e1942c2c" | grep -o '"humidity":[^,]*' | cut -d':' -f2}%
+${color5}${font Marigold:size=15}${font AstroDotBasic:size=12}H${font}${font Marigold:size=15}Etheric Wind Patterns:${font} ${alignr}${color2}${execbar 8,100 curl -s "http://api.openweathermap.org/data/2.5/weather?q=Metamora,IL,US&appid=f056bf9c7862fc780a5a3cd5e1942c2c" | grep -o '"speed":[^,]*' | cut -d':' -f2 | awk '{print $1*100/50}'}
+${color3}${execi 20 curl -s "http://api.openweathermap.org/data/2.5/weather?q=Metamora,IL,US&appid=f056bf9c7862fc780a5a3cd5e1942c2c" | grep -o '"speed":[^,]*' | cut -d':' -f2} mph
+${color5}${font Marigold:size=15}${font AstroDotBasic:size=12}A${font}${font Marigold:size=15}Reality Phase Shift:${font} ${alignr}${color3}${execi 300 curl -s "http://api.openweathermap.org/data/2.5/weather?q=Metamora,IL,US&appid=f056bf9c7862fc780a5a3cd5e1942c2c" | grep -o '"sunrise":[0-9]*' | cut -d':' -f2 | xargs -I {} date -d @{} +"%I:%M %p"} / ${color4}${execi 300 curl -s "http://api.openweathermap.org/data/2.5/weather?q=Metamora,IL,US&appid=f056bf9c7862fc780a5a3cd5e1942c2c" | grep -o '"sunset":[0-9]*' | cut -d':' -f2 | xargs -I {} date -d @{} +"%I:%M %p"}
+${color5}${font Marigold:size=15}${font AstroDotBasic:size=12}V${font}${font Marigold:size=15}Current Reality State:${alignr}${font}${font ConkyWeather:bold:size=30}${execi 60 python3 /home/stephen/.config/conky/scripts/weather.py}${font}
 ${endif}
+${color5}${font Marigold:size=15}${font AstroDotBasic:size=12}W${font}${font Marigold:size=15}Paradox Gales:${alignr}${font}${font ConkyWind:bold:size=30}${execi 60 python3 /home/stephen/.config/conky/scripts/wind.py}${font}
 
-${color #FF79C6}${font Magna Veritas:size=9}V O I D  P O W E R ${hr 2}${hr 2}
-$alignc${color #50FA7B}${battery_bar 20,300}${battery_percent BAT0}%
-${color #BD93F9}${hr 2}
-${color #F8F8F2}${alignc}${font Victoriana:size=13} End of Void Engineers Terminal Report 
-${color #F8F8F2}${font Victoriana:size=12}${alignc}Authorized Personnel Only - Property of the Electrodyne Engineers
-${color #BD93F9}${hr 2}
+
+
 ]]

@@ -35,5 +35,5 @@ conky.config = {
 }
 
 conky.text = [[
-${color #4AF626}${font Wiccan Ways:size=4}${alignc}${exec /home/stephen/.config/Conky/scripts/matrix.sh}
+${color #4AF626}${font Wiccan Ways:size=4}${alignc}${exec /home/stephen/.config/conky/scripts/matrix.sh}
 ]]

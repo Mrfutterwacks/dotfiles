@@ -25,19 +25,19 @@ conky.config = {
     -- Color and drawing
     default_color = '00ffff',
     draw_shades = true,
-    default_shade_color = '000000',
-    draw_outline = false,
-    default_outline_color = '000000',
+    default_shade_color = '#8A2BE2',
+    draw_outline = true,
+    default_outline_color = '#8A2BE2',
     
     -- Border settings
     draw_borders = false,
     border_width = 0,
     
     -- Size
-    minimum_width = 30,
-    minimum_height = 20,
+    minimum_width = 40,
+    minimum_height = 40,
 }
 
 conky.text = [[
-${execp /home/stephen/.config/Conky/scripts/bar.sh}
+${execp /home/stephen/.config/conky/scripts/bar.sh}
 ]]

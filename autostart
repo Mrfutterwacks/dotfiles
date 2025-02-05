@@ -1,0 +1,69 @@
+## Initialize D-Bus session bus if not already initialized
+if [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
+    echo "Initializing D-Bus session..."
+    eval $(dbus-launch --sh-syntax --exit-with-session)
+else
+    echo "D-Bus session already initialized."
+fi
+
+## Restore Wallpaper and Colors
+wal -R &
+sleep 2  # Give enough time for wal to apply colors and wallpaper
+
+nitrogen --restore &
+
+## xfce4-settings daemon (added delay to ensure D-Bus is initialized)
+sleep 3
+if ! pgrep -x "xfsettingsd" > /dev/null; then
+    xfsettingsd &
+fi
+
+## Start Compositing Manager
+exec compton &
+
+## Launch Polybar
+sh ~/.config/polybar/hack/launch.sh
+
+## Start Music Player Daemon
+exec mpd &
+
+## Notification Daemon
+exec dunst &
+
+## Start Glava
+~/.config/conky/scripts/glava.sh
+
+## Thunar Daemon
+exec thunar --daemon &
+
+## Enable Super Keys For Menu
+ksuperkey -e 'Super_L=Alt_L|F1' &
+ksuperkey -e 'Super_R=Alt_L|F1' &
+
+## Enable power management (with delay to ensure D-Bus is ready)
+sleep 4 && xfce4-power-manager &
+
+## Issue Tracker (Don't Remove IT)
+issue_tracker.sh
+
+## Set display resolution and refresh rate
+xrandr --output HDMI-1 --mode 1920x1080 --refresh 144 &
+
+# Wait for desktop environment to fully load
+sleep 2
+
+# Kill any existing conky processes
+killall conky 2>/dev/null
+
+# Start all Conky configurations
+for config in ~/.conky{2..39}rc; do
+    [ -f "$config" ] && conky -c "$config" &
+done
+
+# Apply fade-in effect to all Conky windows
+~/.config/conky/fade_in_conky.sh &
+
+# Start Picom for compositing
+picom --experimental-backends &
+
+

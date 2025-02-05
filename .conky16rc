@@ -35,5 +35,5 @@ conky.config = {
 }
 
 conky.text = [[
-${color #4AF626}${font Xidus LeaDea:bold:size=2}${alignc}${exec /home/stephen/.config/Conky/scripts/moonphase.sh}
+${color #4AF626}${font Xidus LeaDea:bold:size=2}${alignc}${exec /home/stephen/.config/conky/scripts/enock.sh}
 ]]

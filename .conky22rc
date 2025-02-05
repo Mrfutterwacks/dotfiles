@@ -1,6 +1,6 @@
 conky.config = {
     alignment = 'top_left',
-    gap_x = 420,
+    gap_x = 469,
     gap_y = 400,
     minimum_width = 100,
     maximum_width = 100,
@@ -17,8 +17,8 @@ conky.config = {
     draw_graph_borders = false,
     draw_outline = true,     -- Changed to true for outline effect
     draw_shades = true,      -- Changed to true for glow effect
-    default_outline_color = '#FF69B4',  -- Pink outline
-    default_shade_color = '#00FFFF',    -- Cyan shadow/glow
+    default_outline_color = '#4AF626',  -- Pink outline
+    default_shade_color = '#4AF626',    -- Cyan shadow/glow
     
     use_xft = true,
     font = 'Magean',
@@ -33,5 +33,5 @@ conky.config = {
 }
 
 conky.text = [[
-${voffset 450}${color #00FFFF}${execpi 0.1 /home/stephen/.config/Conky/scripts/script.sh}
+${voffset 450}${color #4AF626}${execpi 0.1 /home/stephen/.config/conky/scripts/script.sh}
 ]]

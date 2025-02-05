@@ -35,5 +35,5 @@ conky.config = {
 }
 
 conky.text = [[
-${color #4AF626}${font Zilap Zodiac:bold:size=4}${alignc}${exec /home/stephen/.config/Conky/scripts/Void.sh}
+${color #4AF626}${font Zilap Zodiac:bold:size=4}${alignc}${exec /home/stephen/.config/conky/scripts/Void.sh}
 ]]

@@ -1,97 +1,64 @@
 conky.config = {
-    -- Various settings
+    -- Basic settings (keeping your existing settings)
     background = true,
     cpu_avg_samples = 2,
-    diskio_avg_samples = 10,
     double_buffer = true,
-    if_up_strictness = 'address',
-    net_avg_samples = 2,
-    no_buffers = true,
-    temperature_unit = 'fahrenheit',
-    text_buffer_size = 2048,
     update_interval = 1,
-    imlib_cache_size = 0,
     
-    -- Placement
-    alignment = 'top_left',  -- Changed to opposite side of main Conky
+    -- Placement (keeping your existing settings)
+    alignment = 'top_left',
     gap_x = 14,
-    gap_y = 50,
+    gap_y = 40,
     minimum_height = 20,
     minimum_width = 300,
     maximum_width = 300,
     
-    -- Graphical (matching main Conky)
-    border_inner_margin = 10,
-    border_outer_margin = 5,
-    border_width = 3,
-    default_bar_width = 80,
-    default_bar_height = 10,
-    default_gauge_height = 25,
-    default_gauge_width = 40,
-    default_graph_height = 40,
-    default_graph_width = 0,
-    default_shade_color = '#1F51FF',
-    default_outline_color = '#1F51FF',
+    -- Window settings
+    own_window = true,
+    own_window_type = 'normal',
+    own_window_argb_visual = true,
+    own_window_argb_value = 230,
+    own_window_colour = '#0a0814',  -- Keeping your dark background
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    
+    -- Border settings
+    border_inner_margin = 4,
+    border_outer_margin = 3,
+    border_width = 1,
     draw_borders = true,
-    draw_graph_borders = true,
-    draw_shades = true,
+    draw_graph_borders = false,
+    draw_shades = false,
     draw_outline = false,
     
-    -- Textual (matching main Conky)
-    extra_newline = false,
-    format_human_readable = true,
-    font = 'Victoriana:size=12',
-    max_text_width = 0,
-    max_user_text = 16384,
-    override_utf8_locale = true,
-    short_units = true,
-    top_name_width = 21,
-    top_name_verbose = false,
-    uppercase = false,
-    use_spacer = 'none',
+    -- Text settings
     use_xft = true,
+    font = 'JetBrains Mono:size=9',
     xftalpha = 1,
+    uppercase = false,
+    extra_newline = false,
     
-    -- Windows
-    own_window = true,
-    own_window_argb_value = 180,
-    own_window_argb_visual = true,
-    own_window_colour = '#282a36',
-    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
-    own_window_transparent = false,
-    own_window_title = 'Terminal of Void Engineers Mark IV - Harmonics',
-    own_window_type = 'normal',
-    
-    -- Colors (matching Dracula theme from main Conky)
-    default_color = '#e2176d',
-    color1 = '#FF79C6',
-    color2 = '#50FA7B',
-    color3 = '#8BE9FD',
-    color4 = '#FFB86C',
-    color5 = '#BD93F9',
-    color6 = '#FF5555',
-    color7 = '#F1FA8C',
-    color8 = '#6272A4',
-    color9 = '#8B0000',
-    
-    -- Image support
-    lua_load = '~/.conky/scripts/image.lua',
-    lua_draw_hook_pre = 'draw_image',
+    -- Cyberpunk color scheme matching your screenshot
+    default_color = '#00ff00',      -- Neon green
+    color1 = '#ff00ff',            -- Neon purple
+    color2 = '#00ff00',            -- Bright green for text
+    color3 = '#00ffff',            -- Cyan
+    color4 = '#ff00ff',            -- Magenta
+    color5 = '#bd93f9',            -- Purple
+    color6 = '#ff0000',            -- Red
+    color7 = '#ffff00',            -- Yellow
+    color8 = '#0000ff',            -- Blue
+    color9 = '#ff00ff',            -- Magenta
 };
 
 conky.text = [[
-${color #50FA7B}${font Professor:size=17}${alignc}VOID HARMONICS TERMINAL
-${color #50FA7B}${font Professor:size=12}${alignc}Subsystem Mark IV-Series Beta
-${color #50FA7B}${hr 2}
-
-${color #FF79C6}${font Magna Veritas:size=8}V O I D  H A R M O N I C  S T A T U S${hr 2}${font}
-
-${color #BD93F9}${offset 30}${font Marigold:size=15}Current Resonance:${color #8BE9FD} ${alignr}${exec playerctl -p rhythmbox metadata title}
-${color #BD93F9}${offset 30}${font Marigold:size=15}Void Composer:${color #8BE9FD} ${alignr}${exec playerctl -p rhythmbox metadata artist}
-${color #BD93F9}${offset 30}${font Marigold:size=15}Harmonic Collection:${color #8BE9FD} ${alignr}${exec playerctl -p rhythmbox metadata album}
-${color #BD93F9}${offset 30}${font Marigold:size=15}Resonance Status:${color #8BE9FD} ${alignr}${exec playerctl -p rhythmbox status}
-${color #BD93F9}${hr 2}
-${color #F8F8F2}${alignc}${font Victoriana:size=13}Void Harmonics Monitor
-${color #F8F8F2}${font Victoriana:size=12}${alignc}Subsystem Active - Monitoring Quintessence
-${color #BD93F9}${hr 2}
+${color2}${font Magna Veritas:size=9}$ SIREN'S HARMONIC RESONANCE ${font}${color3}]${hr 2}
+${color4}${font Marigold:size=12}Sirens' Song:${font}${color2} ${alignr}${exec playerctl -p rhythmbox metadata title}
+${color4}${font Marigold:size=12}Voice Weaver:${font}${color2} ${alignr}${exec playerctl -p rhythmbox metadata artist}
+${color4}${font Marigold:size=12}Melodic Grimoire:${font}${color2} ${alignr}${exec playerctl -p rhythmbox metadata album}
+${color4}${font Marigold:size=12}Cacophony State:${font}${color2} ${alignr}${exec playerctl -p rhythmbox status}
+${color3}${hr 2}
+${color2}${font Professor:size=10}${alignc}RESONANT FREQUENCIES${execi 1 bash /home/stephen/.config/conky/scripts/T3.sh}${font}
+${color3}${hr 2}
+${color2}${font Professor:size=10}${alignc}HARMONIC DISTORTIONS${execi 1 bash /home/stephen/.config/conky/scripts/T2.sh}${font}
+${color3}${hr 2}
 ]]

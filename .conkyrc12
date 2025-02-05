@@ -80,5 +80,5 @@ conky.config = {
 }
 
 conky.text = [[
-${color #00fdff}${font Devil's Tongue:bold:size=22}${alignc}${exec /home/stephen/.config/Conky/scripts/cycle_messages.sh}
+${color #00fdff}${font Devil's Tongue:bold:size=22}${alignc}${exec /home/stephen/.config/conky/scripts/enock.sh}
 ]]

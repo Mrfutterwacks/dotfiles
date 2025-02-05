@@ -35,5 +35,5 @@ conky.config = {
 }
 
 conky.text = [[
-${color #4AF626}${font Devil's Tongue:size=3}${alignc}${exec /home/stephen/.config/Conky/scripts/moonphase.sh}
+${color #4AF626}${font Devil's Tongue:size=3}${alignc}${exec /home/stephen/.config/conky/scripts/matrix.sh}
 ]]

@@ -1,0 +1,22 @@
+conky.config = {
+    own_window = true,
+    own_window_type = 'desktop',
+    own_window_transparent = true,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    own_window_argb_visual = true,
+    own_window_argb_value = 0,
+    
+    double_buffer = true,
+    update_interval = 0.1,
+    total_run_times = 0,
+    
+    alignment = 'top_left',
+    gap_x = 567,
+    gap_y = -160,
+    minimum_width = 800,
+    minimum_height = 600
+};
+
+conky.text = [[
+${execpi 0.1 python3 ~/.config/conky/scripts/rings.py}
+]];
